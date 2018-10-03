@@ -1,0 +1,1 @@
+export { default as HOme } from "./home/Home";

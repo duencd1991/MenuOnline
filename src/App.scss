@@ -1,0 +1,29 @@
+@import "./constants/colors.scss";
+.body-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .wrapper {
+    display: flex;
+    flex-grow: 1;
+    align-items: stretch;
+    #content {
+      margin: 60px 0 0 299px;
+      transition-duration: 0.5s;
+      flex-grow: 1;
+      background-color: $backgroundColor;
+    }
+  }
+  &.hidden-left-menu {
+    #content {
+      margin: 60px 0 0 0 !important;
+      transition-duration: 0.5s;
+    }
+  }
+  &.hidden-header {
+    #content {
+      margin: 0 !important;
+      transition-duration: 0.5s;
+    }
+  }
+}

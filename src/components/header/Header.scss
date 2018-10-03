@@ -1,0 +1,9 @@
+@import "../../constants/colors.scss";
+
+.header-session {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  z-index: 22;
+  background-image: linear-gradient(to left, #27464e, #3591d0);
+}
