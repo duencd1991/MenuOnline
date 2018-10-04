@@ -1,19 +1,20 @@
 import React, { Component } from "react";
-import "./Home.scss";
+import "./Menu.scss";
 import tiger from "../../public/images/tiger.jpg"
 import { connect } from "react-redux";
 import { clear, error, success, addOrder, subOrder, clearOrder } from "../../redux/actions";
 
-class Home extends Component {
+class Menu extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
+      tableId: 0,
       tabCurrent: 0,
       listTab: [
-        "Foods",
-        "Drinks"
+        "Đồ ăn",
+        "Đồ uống"
       ],
       listMenu: [
         [
@@ -55,21 +56,21 @@ class Home extends Component {
         ],
         [
           {
-            id: 1,
+            id: 6,
             name: "Nước mắt cá",
             img: tiger,
             price: 12,
             quantity: 0
           },
           {
-            id: 2,
+            id: 7,
             name: "Mưa sao băng",
             img: tiger,
             price: 15,
             quantity: 0
           },
           {
-            id: 3,
+            id: 8,
             name: "Nước biển đen",
             img: tiger,
             price: 18,
@@ -77,6 +78,15 @@ class Home extends Component {
           }
         ]
       ]
+    }
+  }
+
+  componentDidMount() {
+    const tableId = window.location.search.substring(1);
+    if (tableId) {
+      this.setState({
+        tableId: tableId
+      })
     }
   }
 
@@ -95,38 +105,62 @@ class Home extends Component {
     this.setState(state);
   }
 
+  handleSubOrder = (prod) => {
+    let state = this.state;
+    for (let i = 0; i < state.listMenu[state.tabCurrent].length; i++) {
+      if (state.listMenu[state.tabCurrent][i].id == prod.id && state.listMenu[state.tabCurrent][i].quantity > 0) {
+        state.listMenu[state.tabCurrent][i].quantity--;
+        this.props.subOrder(state.listMenu[state.tabCurrent][i]);
+      }
+    }
+    this.setState(state);
+  }
+
   render() {
     const {
+      tableId,
       tabCurrent,
       listMenu,
       listTab
     } = this.state;
-    return (
-      <div className="home-content">
-        <div className="menu-selector">
-          {
-            listTab.map((item, index) => {
-              return <div key={index} onClick={(e) => this.changeTab(index)} className="tab-item">{item}</div>
-            })
-          }
+    if (tableId == 0) {
+      return (
+        <div className="table-content">
+          <h1>Vui lòng quét mã QR tại bàn để gọi đồ!</h1>
         </div>
-        <div className="menu-content">
-          {
-            listMenu[tabCurrent].map((prod, index) => {
-              return <div key={index} className="card">
-                {
-                  prod.quantity > 0 && <div className="prod-quantity">{prod.quantity}</div>
-                }
-                <img src={prod.img} alt={prod.name} />
-                <h1>{prod.name}</h1>
-                <p className="price">{prod.price}K</p>
-                <p><button onClick={(e) => this.handleOrder(prod)}>Gọi đồ</button></p>
-              </div>
-            })
-          }
+      );
+    } else {
+      return (
+        <div className="table-content">
+          <div className="menu-selector">
+            {
+              listTab.map((item, index) => {
+                return <div key={index} onClick={(e) => this.changeTab(index)} className="tab-item">{item}</div>
+              })
+            }
+          </div>
+          <div className="menu-content">
+            {
+              listMenu[tabCurrent].map((prod, index) => {
+                return <div key={index} className="card">
+                  {
+                    prod.quantity > 0 && <div className="prod-quantity">{prod.quantity}</div>
+                  }
+                  <img src={prod.img} alt={prod.name} />
+                  <h1>{prod.name}</h1>
+                  <p className="price">{prod.price}K</p>
+                  <div className="btn-order">
+                    <button onClick={(e) => this.handleSubOrder(prod)}>-</button>
+                    <a>Gọi đồ</a>
+                    <button onClick={(e) => this.handleOrder(prod)}>+</button>
+                  </div>
+                </div>
+              })
+            }
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
@@ -158,4 +192,4 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);

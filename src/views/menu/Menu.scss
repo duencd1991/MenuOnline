@@ -1,7 +1,11 @@
-.home-content {
+.table-content {
   padding: 15px 0;
   display: flex;
   flex-direction: column;
+  h1 {
+    margin: auto;
+    text-align: center;
+  }
   .menu-selector {
     height: 100px;
     justify-content: space-evenly;
@@ -28,10 +32,14 @@
     .card {
       position: relative;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      width: 300px;
+      width: 50%;
+      max-width: 300px;
       margin: 10px auto;
       text-align: center;
       font-family: arial;
+      img {
+        width: 100%;
+      }
       .prod-quantity {
         position: absolute;
         right: 0;
@@ -42,23 +50,52 @@
         background-color: black;
         width: 50px;
       }
-      button {
-        border: none;
-        outline: 0;
-        padding: 12px;
-        color: white;
-        background-color: #000;
-        text-align: center;
-        cursor: pointer;
-        width: 100%;
-        font-size: 18px;
-        &:hover {
-          opacity: 0.7;
+      .btn-order {
+        display: flex;
+        
+        button {
+          background-color: #000;
+          color: white;
+          padding: 12px;
+          font-size: 18px;
+          text-align: center;
+          border: none;
+          outline: 0;
+          cursor: pointer;
+          flex-grow: 1;
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+        a {
+          background-color: #000;
+          color: white;
+          padding: 12px;
+          font-size: 18px;
+          text-align: center;
         }
       }
       .price {
         color: grey;
         font-size: 22px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 500px) {
+  .table-content {
+    .menu-selector {
+      height: 50px;
+      .tab-item {
+        line-height: 50px;
+        padding: 0 10px;
+      }
+    }
+    .menu-content {
+      .card {
+        h1 {
+          font-size: 28px;
+        }
       }
     }
   }

@@ -14,5 +14,5 @@ export function subOrder(prod) {
 }
 
 export function clearOrder() {
-  return { type: orderTypes.CLEAR };
+  return { type: orderTypes.CLEAR_ORDER };
 }

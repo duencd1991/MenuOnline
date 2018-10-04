@@ -1,11 +1,50 @@
 .footer {
-  height: 100px;
   text-align: left;
   width: 100%;
-  position: fixed;
-  bottom: 0;
   background-color: #27464e;
   color: #fff;
   font-family: "Roboto-Light";
   padding: 10px;
+  display: flex;
+  .box-order {
+    flex-grow: 1;
+    .list-order {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      .order-item {
+        width: 200px;
+      }
+    }
+  }
+  .mr-auto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    .box-total {
+      min-width: 150px;
+      display: flex;
+      justify-content: space-around;
+    }
+    .box-button {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      button {
+        border: none;
+      }
+    }
+    .order-index {
+      height: 50px;
+      text-align: center;
+      margin: auto;
+      color: #000;
+      font-weight: bold;
+      font-size: 28px;
+      line-height: 50px;
+      background-color: #fff;
+      width: 50px;
+      border-radius: 50%;
+    }
+  }
 }

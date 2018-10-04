@@ -27,13 +27,13 @@ class App extends Component {
     const { alert } = this.props;
     let urlPage = window.location.pathname.toLowerCase();
 
-    let hiddenLeftMenu = false;
+    let hiddenLeftMenu = true;
     let hiddenHeader = true;
-    if (urlPage === "/") {
-      hiddenLeftMenu = true;
+    if (urlPage === "/admin") {
+      hiddenLeftMenu = false;
     }
-    if (urlPage === "/login") {
-      hiddenHeader = true;
+    if (urlPage === "/admin") {
+      hiddenHeader = false;
     }
     return (
       <div className={hiddenLeftMenu ? hiddenHeader ? "body-container hidden-header hidden-left-menu" : "body-container hidden-left-menu" : "body-container"}>
@@ -60,7 +60,7 @@ class App extends Component {
           <div id="content">
             <Routes history={history} />
           </div>
-          <Footer />
+          <Footer history={history}/>
         </div>
 
       </div>
