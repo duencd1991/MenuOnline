@@ -17,7 +17,7 @@ class Footer extends Component {
       return (
         <div className="footer">
           <div className="box-order">
-            <div>Danh sách gọi đồ:</div>
+            <div>{`Danh sách gọi đồ ${this.props.tableId > 0 ? `bàn ${this.props.tableId}:` : ':'}`}</div>
             <div className="list-order">
               {
                 this.props.listOrder.map((item, index) => {
@@ -34,7 +34,7 @@ class Footer extends Component {
                 <div>{`${total} K`}</div>
               </div>
               {
-                hiddenBtnAction ? <div className="order-index">1</div> : <div className="box-button">
+                hiddenBtnAction ? <div className="order-index">11</div> : <div className="box-button">
                   <button className="btn-primary" onClick={(e) => this.props.history.push("/viewOrder")}>Xác nhận</button>
                   <button className="btn-danger" onClick={(e) => this.props.clearOrder()}>Xóa</button>
                 </div>
@@ -49,13 +49,14 @@ class Footer extends Component {
 
 const mapStateToProps = (state) => ({
   alert: state.alert,
-  listOrder: state.order.listOrder
+  listOrder: state.order.listOrder,
+  tableId: state.order.tableId
 });
 
 const mapDispatchToProps = dispatch => {
   return {
     clear: () => {
-      dispatch(clear());
+      dispatch(clear())
     },
     error: (message) => {
       dispatch(error(message))
@@ -71,7 +72,7 @@ const mapDispatchToProps = dispatch => {
     },
     clearOrder: () => {
       dispatch(clearOrder())
-    },
+    }
   }
 };
 

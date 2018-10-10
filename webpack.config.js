@@ -4,13 +4,14 @@ let FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const PATHS = {
   src: path.join(__dirname, 'src'),
   build: path.join(__dirname, 'build'),
-  public: path.join(__dirname, 'src/public'),
-  imgPath: path.join(__dirname, './src/public/images')
+  public: path.join(__dirname, 'public'),
+  imgPath: path.join(__dirname, 'public/images')
 };
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './src/public/index.html',
+  template: './public/index.html',
   filename: 'index.html',
   inject: 'body'
 })
@@ -40,6 +41,12 @@ module.exports = {
     // new webpack.optimize.UglifyJsPlugin(),
     ////////////////
     HtmlWebpackPluginConfig,
+    new CopyWebpackPlugin([
+      {
+        from: PATHS.public,
+        to: PATHS.build
+      }
+    ]),
     new FaviconsWebpackPlugin({
       // Your source logo
       logo: PATHS.imgPath + '/icons/icon.png',

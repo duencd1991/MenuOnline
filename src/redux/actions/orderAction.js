@@ -2,8 +2,13 @@ import { orderTypes } from "../../constants/actionTypes";
 export const orderActions = {
   addOrder,
   subOrder,
-  clearOrder
+  clearOrder,
+  setTableOrder
 };
+
+export function setTableOrder(tableId) {
+  return { type: orderTypes.SET_TABLE, tableId};
+}
 
 export function addOrder(prod) {
   return { type: orderTypes.ADD_ORDER, prod };

@@ -2,6 +2,7 @@ import { orderTypes } from "../../constants/actionTypes";
 
 const initialState = {
   listOrder: [],
+  tableId: 0
 };
 
 export function order(state = initialState, action) {
@@ -20,7 +21,8 @@ export function order(state = initialState, action) {
         newList.push(action.prod);
       }
       return {
-        listOrder: newList
+        listOrder: newList,
+        tableId: state.tableId
       };
     case orderTypes.SUB_ORDER:
       let sub = false;
@@ -40,12 +42,19 @@ export function order(state = initialState, action) {
         }
       }
       return {
-        listOrder: subList
+        listOrder: subList,
+        tableId: state.tableId
       };
     case orderTypes.CLEAR_ORDER:
       return {
-        listOrder: []
+        listOrder: [],
+        tableId: 0
       };
+    case orderTypes.SET_TABLE:
+      return {
+        listOrder: state.listOrder,
+        tableId: action.tableId
+      }
     default:
       return state
   }

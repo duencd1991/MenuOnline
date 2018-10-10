@@ -9,6 +9,7 @@ import { PrivateRoute, NotRequireLogin } from './components/commons';
 export default () =>
   <Router history={history}>
     <Switch>
+      <Route exact path='/' component={ViewOrder}/>
       <Route path='/menu' component={Menu} />
       <Route path='/viewOrder' component={ViewOrder} />
       {/* <Route component={PageNotFound}></Route> */}

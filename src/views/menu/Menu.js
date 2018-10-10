@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./Menu.scss";
-import tiger from "../../public/images/tiger.jpg"
+import tiger from "../../../public/images/tiger.jpg";
 import { connect } from "react-redux";
-import { clear, error, success, addOrder, subOrder, clearOrder } from "../../redux/actions";
+import { clear, error, success, addOrder, subOrder, clearOrder, setTableOrder } from "../../redux/actions";
 
 class Menu extends Component {
 
@@ -87,6 +87,7 @@ class Menu extends Component {
       this.setState({
         tableId: tableId
       })
+      this.props.setTableOrder(tableId);
     }
   }
 
@@ -189,6 +190,9 @@ const mapDispatchToProps = dispatch => {
     clearOrder: () => {
       dispatch(clearOrder())
     },
+    setTableOrder: (tableId) => {
+      dispatch(setTableOrder(tableId))
+    }
   }
 };
 

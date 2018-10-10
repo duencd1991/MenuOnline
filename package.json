@@ -2,12 +2,15 @@
   "name": "menu",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://duencd1991.github.io/MenuOnline",
   "main": "index.js",
   "author": "Menu",
   "license": "menu.com",
   "dependencies": {
+    "copy-webpack-plugin": "^4.5.2",
     "favicons-webpack-plugin": "0.0.9",
     "file-loader": "^2.0.0",
+    "gh-pages": "^2.0.1",
     "jquery": "^3.3.1",
     "react": "^16.5.2",
     "react-bootstrap": "^0.32.4",
@@ -21,7 +24,9 @@
   "scripts": {
     "watch": "webpack -d --watch",
     "start": "webpack-dev-server --open",
-    "build": "webpack"
+    "build": "webpack",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "axios": "^0.18.0",
