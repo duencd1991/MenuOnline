@@ -170,13 +170,14 @@ class ViewOrder extends Component {
                       </div>
                     })
                   }
-                  <div className="order-total">
-                    <div className="view-total">
-                      {`${totalOrder}K`}
-                    </div>
-                    <button className="button btn-request">Gọi nhân viên</button>
-                    <button className="button btn-pay">Thanh Toán</button>
+                </div>
+
+                <div className="order-total">
+                  <div className="view-total">
+                    {`${totalOrder}K`}
                   </div>
+                  <button className="button btn-request">Gọi nhân viên</button>
+                  <button className="button btn-pay">Thanh Toán</button>
                 </div>
 
               </div>

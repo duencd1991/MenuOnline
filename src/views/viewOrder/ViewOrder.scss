@@ -21,40 +21,41 @@
     color: #000;
     font-weight: 500;
   }
+  .order-total {
+    height: 50px;
+    width: 100%;
+    background-color: #000000;
+    bottom: 0;
+    position: fixed;
+    display: flex;
+    .view-total {
+      flex-grow: 1;
+      color: #fff;
+      font-size: 20px;
+      line-height: 50px;
+      padding-left: 20px;
+    }
+    .button {
+      border-radius: 0;
+      margin-right: 5px;
+      font-size: 16px;
+      border: none;
+      color: #fff;
+    }
+    .btn-request {
+      background-color: green;
+    }
+    .btn-pay {
+      background-color: royalblue;
+    }
+  }
   .view-content {
     padding-bottom: 50px;
     flex-grow: 1;
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
-    .order-total {
-      height: 50px;
-      width: 100%;
-      background-color: #000000;
-      bottom: 0;
-      position: fixed;
-      display: flex;
-      .view-total {
-        flex-grow: 1;
-        color: #fff;
-        font-size: 20px;
-        line-height: 50px;
-        padding-left: 20px;
-      }
-      .button {
-        border-radius: 0;
-        margin-right: 5px;
-        font-size: 16px;
-        border: none;
-        color: #fff;
-      }
-      .btn-request {
-        background-color: green;
-      }
-      .btn-pay {
-        background-color: royalblue;
-      }
-    }
+    
     .view-card {
       position: relative;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
