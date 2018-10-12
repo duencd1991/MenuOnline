@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './UploadImage.scss';
 import * as UploadService from '../UploadService';
-import { alertConstants } from "../../../constants";
+import { alertTypes } from "../../../constants/actionTypes";
 import { connect } from "react-redux";
-import { clear, error, success } from "../../../actions";
+import { clear, error, success } from "../../../redux/actions";
 import Cropper from 'react-cropper';
 import 'cropperjs/dist/cropper.css';
 

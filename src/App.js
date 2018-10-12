@@ -29,10 +29,8 @@ class App extends Component {
 
     let hiddenLeftMenu = true;
     let hiddenHeader = true;
-    if (urlPage === "/admin") {
+    if (urlPage === "/createproduct" || urlPage === "/updateproduct" || urlPage === "/listproduct") {
       hiddenLeftMenu = false;
-    }
-    if (urlPage === "/admin") {
       hiddenHeader = false;
     }
     return (

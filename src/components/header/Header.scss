@@ -6,4 +6,33 @@
   height: 60px;
   z-index: 22;
   background-image: linear-gradient(to left, #27464e, #3591d0);
+  .branch-box {
+    height: 100%;
+    width: 165px;
+    padding: 10px;
+    display: flex;
+    margin-left: 4px;
+    .ic-logo {
+      height: 100%;
+    }
+    .ic-branch {
+      height: 23px;
+      margin: auto;
+    }
+  }
+  .box-title {
+    flex-grow: 1;
+    padding-top: 10px;
+  }
+  .nav-label {
+    margin: auto 38px auto 6px;
+    font-family: "Roboto-Regular";
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+  }
+  i {
+    margin: auto !important;
+    color: #ffffff;
+  }
 }

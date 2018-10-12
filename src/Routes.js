@@ -6,7 +6,10 @@ import {
   ViewOrder,
   Login,
   ForgotPW,
-  Register
+  Register,
+  CreateProduct,
+  UpdateProduct,
+  ListProduct
 } from "./views";
 
 import { PrivateRoute, NotRequireLogin } from './components/commons';
@@ -15,11 +18,14 @@ export default () =>
   <Router history={history}>
     <Switch>
       <Route exact path='/' component={ViewOrder} />
-      <Route path='/menu' component={Menu} />
-      <Route path='/viewOrder' component={ViewOrder} />
-      <Route path='/login' component={Login} />
-      <Route path='/register' component={Register} />
-      <Route path='/forgotpw' component={ForgotPW} />
+      <Route path='/Menu' component={Menu} />
+      <Route path='/ViewOrder' component={ViewOrder} />
+      <Route path='/Login' component={Login} />
+      <Route path='/Register' component={Register} />
+      <Route path='/ForgotPW' component={ForgotPW} />
+      <Route path='/CreateProduct' component={CreateProduct} />
+      <Route path='/UpdateProduct' component={UpdateProduct} />
+      <Route path='/ListProduct' component={ListProduct} />
       {/* <Route component={PageNotFound}></Route> */}
     </Switch>
   </Router>;
