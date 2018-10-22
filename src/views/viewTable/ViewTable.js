@@ -30,4 +30,9 @@ const mapStateToProps = (state) => {
     tables: state.listTables
   }
 }
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    
+  }
+}
 export default connect(mapStateToProps, null)(ViewTable);
