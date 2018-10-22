@@ -6,3 +6,4 @@ export { default as Register } from "./admin/users/register/Register";
 export { default as CreateProduct } from "./admin/product/createProduct/CreateProduct";
 export { default as UpdateProduct } from "./admin/product/updateProduct/UpdateProduct";
 export { default as ListProduct } from "./admin/product/listProduct/ListProduct";
+export { default as ViewTable } from "./viewTable/ViewTable";

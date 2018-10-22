@@ -9,7 +9,8 @@ import {
   Register,
   CreateProduct,
   UpdateProduct,
-  ListProduct
+  ListProduct,
+  ViewTable
 } from "./views";
 
 import { PrivateRoute, NotRequireLogin } from './components/commons';
@@ -26,6 +27,7 @@ export default () =>
       <Route path='/CreateProduct' component={CreateProduct} />
       <Route path='/UpdateProduct' component={UpdateProduct} />
       <Route path='/ListProduct' component={ListProduct} />
+      <Route path='/ViewTable' component={ViewTable} />
       {/* <Route component={PageNotFound}></Route> */}
     </Switch>
   </Router>;
