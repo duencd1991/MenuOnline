@@ -3,12 +3,6 @@ import "./Table.scss";
 import { sendIndex, sendTable} from './../../../redux/actions';
 import { connect } from 'react-redux';
 
-
-const tableStyle = {
-  width: 20 + 'rem'
-}
-
-
 class Table extends Component {
 
   onOrder = () => {
