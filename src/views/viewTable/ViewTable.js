@@ -11,15 +11,21 @@ class ViewTable extends Component {
 
   render() {
     const { tables } = this.props;
-
+    var { isDisplayQR, isDisplayInvoice } = this.props;
     return (
       <div>
-        <div className="mt-100 ml-200 flex-container">
+        <div className="mlrt-200 flex-container">
           {
             tables.map((table, index) => {
               return <Table key={table.id} index={index} table={table} />
             })
           }
+        </div>
+        <div>
+          {isDisplayQR ? <Qrform /> : ''}
+        </div>
+        <div>
+          {isDisplayInvoice ? <InvoiceForm /> : ''}
         </div>
       </div>
     );
@@ -28,11 +34,6 @@ class ViewTable extends Component {
 const mapStateToProps = (state) => {
   return {
     tables: state.listTables
-  }
-}
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    
   }
 }
 export default connect(mapStateToProps, null)(ViewTable);
