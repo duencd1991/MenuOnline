@@ -59,7 +59,7 @@ var initState = [
   }
 ];
 
-export function listTables (state = initState, action) {
+export function listTables(state = initState, action) {
   switch (action.type) {
     case tableTypes.ACTION_LIST_TABLE:
       return state;
