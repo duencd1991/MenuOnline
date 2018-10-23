@@ -6,13 +6,13 @@ import * as actions from './../actions/index';
 class Qrform extends Component {
 
     closeForm=()=>{
-        this.props.onClose();
+        this.props.onCloseQr(false);
     }
 
     onConfirm =()=>{
         var {table} = this.props;
         this.props.onConfirm(table);
-        this.props.onClose();
+        this.props.onCloseQr();
     }
     render() {
         var React = require('react');
@@ -39,19 +39,20 @@ class Qrform extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        table: state.sendTable
-    }
-}
+// const mapStateToProps = (state) => {
+//     return {
+//         table: state.sendTable
+//     }
+// }
 const mapDispatchToProps = (dispatch, props) => {
     return {
-        onClose: () => {
-            dispatch(actions.closeQr());
-        },
+        // onClose: () => {
+        //     dispatch(actions.closeQr());
+        // },
         onConfirm:(table)=>{
             dispatch(actions.changeTableStatus(table));
         }
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(Qrform);
+export default connect(null,mapDispatchToProps)(Qrform);
+// export default Qrform;

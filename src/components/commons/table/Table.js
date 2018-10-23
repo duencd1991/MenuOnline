@@ -13,9 +13,9 @@ class Table extends Component {
       alert('Hiện tại bàn ' + this.props.table.index + ' đang bận !');
     } else {
       var { table } = this.props;
-      this.props.onSendTable(table);
-      this.props.onCloseInvoice();
-      this.props.onShowQr();
+      this.props.onActionTable(table);
+      // this.props.onCloseInvoice();
+      // this.props.onShowQr();
     }
   }
 
@@ -24,9 +24,9 @@ class Table extends Component {
       alert('Hóa đơn bàn ' + this.props.table.index + ' không tồn tại !');
     } else {
       var { table } = this.props;
-      this.props.onSendTable(table);
-      this.props.onCloseQr();
-      this.props.onShowInvoice();
+      this.props.onActionTable(table);
+      // this.props.onCloseQr();
+      // this.props.onShowInvoice();
     }
 
   }
@@ -58,14 +58,14 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch, props) => {
-  return {
-    onSendIndex: (index) => {
-      dispatch(sendIndex(index));
-    },
-    onSendTable: (table) => {
-      dispatch(sendTable(table));
-    }
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Table);
+// const mapDispatchToProps = (dispatch, props) => {
+//   return {
+//     onSendIndex: (index) => {
+//       dispatch(sendIndex(index));
+//     },
+//     onSendTable: (table) => {
+//       dispatch(sendTable(table));
+//     }
+//   }
+// }
+export default connect(mapStateToProps, null)(Table);

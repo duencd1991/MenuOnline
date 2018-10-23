@@ -4,13 +4,13 @@ import {connect} from 'react-redux';
 import * as actions from './../actions/index';
 class InvoiceForm extends Component {
     onClose =()=>{
-        this.props.onClose();
+        this.props.onCloseInvoice();
     }
 
     onPrintInvoice =()=>{
         var {table} = this.props;
         this.props.onPrintInvoice(table);
-        this.props.onClose();
+        this.props.onCloseInvoice();
     }
     render() {
         var {table} = this.props;
@@ -33,11 +33,11 @@ class InvoiceForm extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        table: state.sendTable
-    }
-}
+// const mapStateToProps = (state) => {
+//     return {
+//         table: state.sendTable
+//     }
+// }
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
@@ -49,4 +49,4 @@ const mapDispatchToProps = (dispatch, props) => {
         }
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(InvoiceForm);
+export default connect(null,mapDispatchToProps)(InvoiceForm);
