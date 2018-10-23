@@ -38,7 +38,7 @@ class Table extends Component {
     return (
       <div>
         <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 mt-30">
-          <div className={table.status === true ? "card text-white bg-success" : "card text-white bg-secondary"} style={tableStyle}>
+          <div className={table.status === true ? "card text-white bg-success" : "card text-white bg-secondary"}>
             <div className="card-body">
               <h4 className="card-title">Bàn {table.index}</h4>
               <button className="btn btn-primary" onClick={this.onOrder}>Đặt bàn</button> &nbsp;

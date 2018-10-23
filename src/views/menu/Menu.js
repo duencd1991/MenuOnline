@@ -10,6 +10,8 @@ class Menu extends Component {
     super(props);
 
     this.state = {
+      confirmLogin: false,
+      confirmCode: "",
       tableId: 0,
       tabCurrent: 0,
       listTab: [
@@ -81,7 +83,7 @@ class Menu extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const tableId = window.location.search.substring(1);
     if (tableId) {
       this.setState({
@@ -117,17 +119,47 @@ class Menu extends Component {
     this.setState(state);
   }
 
+  confirmCode = (e) => {
+    if (this.state.confirmCode === "123") {
+      this.setState({
+        confirmLogin: true
+      })
+    } else {
+      this.setState({
+        confirmCode: ""
+      })
+    }
+  }
+
+  onInputCode = (e) => {
+    this.setState({
+      confirmCode: e.target.value
+    })
+  }
+
   render() {
     const {
       tableId,
       tabCurrent,
       listMenu,
-      listTab
+      listTab,
+      confirmLogin,
+      confirmCode
     } = this.state;
     if (tableId == 0) {
       return (
         <div className="table-content">
           <h1>Vui lòng quét mã QR tại bàn để gọi đồ!</h1>
+        </div>
+      );
+    } else if (!confirmLogin) {
+      return (
+        <div className="confirm-content">
+          <div className="confirm-form" >
+            <div className="confirm-title">Nhập mã xác nhận đặt bàn</div>
+            <input type="text" className="form-control" value={confirmCode} onChange={this.onInputCode} />
+            <button type="button" className="btn btn-confirm" onClick={this.confirmCode}>XÁC NHẬN</button>
+          </div>
         </div>
       );
     } else {
@@ -162,6 +194,7 @@ class Menu extends Component {
         </div>
       );
     }
+
   }
 }
 

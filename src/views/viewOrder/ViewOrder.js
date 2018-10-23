@@ -181,7 +181,7 @@ class ViewOrder extends Component {
                 </div>
 
               </div>
-              <div class="tab-pane" id="tab-2">
+              <div className="tab-pane" id="tab-2">
                 <div className="view-content">
                   {
                     listOrder.map((order, index) => {
