@@ -8,8 +8,7 @@ import './../public/fonts/font.scss';
 import { store } from './helper';
 
 ReactDOM.render(
-   <Provider store={store}>
-       <App />
+   <Provider store={store}><App />
    </Provider>,
     document.getElementById("root")
 );
